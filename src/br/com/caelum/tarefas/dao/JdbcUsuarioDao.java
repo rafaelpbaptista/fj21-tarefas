@@ -20,14 +20,13 @@ public class JdbcUsuarioDao {
 	}
 
 	public boolean existeUsuario(Usuario usuario) {
-
-		if (usuario == null) {
+		
+		if(usuario == null) {
 			throw new IllegalArgumentException("Usuário não deve ser nulo");
 		}
-
+		
 		try {
-			PreparedStatement stmt = this.connection
-					.prepareStatement("select * from usuarios where login = ? and senha = ?");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from usuarios where login = ? and senha = ?");
 			stmt.setString(1, usuario.getLogin());
 			stmt.setString(2, usuario.getSenha());
 			ResultSet rs = stmt.executeQuery();
@@ -42,3 +41,4 @@ public class JdbcUsuarioDao {
 		}
 	}
 }
+
