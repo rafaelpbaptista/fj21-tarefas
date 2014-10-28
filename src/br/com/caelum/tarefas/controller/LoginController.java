@@ -21,10 +21,15 @@ public class LoginController {
 		if (new JdbcUsuarioDao().existeUsuario(usuario)) {
 			session.setAttribute("usuarioLogado", usuario);
 			System.out.println("[INFO] Usuário logado.");
-			return "menu";
+			return "redirect:menu";
 		}
 		System.out.println("[ERRO] Usuário ou senha não encontrado.");
 		return "redirect:loginForm";
+	}
+	
+	@RequestMapping("menu")
+	public String menuPrincipal() {
+		return "menu";
 	}
 
 	@RequestMapping("logout")

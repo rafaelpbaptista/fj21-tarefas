@@ -56,5 +56,8 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<br />
+	<hr />
+	<a href="menu"> &lt; Voltar para o menu</a>
 </body>
 </html>
